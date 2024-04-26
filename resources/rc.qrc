@@ -1,0 +1,15 @@
+<RCC>
+  <qresource prefix="icon">
+    <file alias="help">icon/teach.png</file>
+    <file alias="action_remove_dark">icon/remove_dark.png</file>
+    <file alias="action_trash_dark">icon/trash_dark.png</file>
+    <file alias="action_move">icon/move.png</file>
+    <file alias="action_zoom_in">icon/zoomOut.png</file>
+    <file alias="action_zoom_out">icon/zoomIn.png</file>
+    <file alias="action_refresh">icon/refresh.png</file>
+    <file alias="clear_layer">icon/trash_light.png</file>
+    <file alias="remove_layer">icon/remove_light.png</file>
+    <file alias="open_raster">icon/open_raster.png</file>
+    <file alias="open_vector">icon/open_vector.png</file>
+  </qresource>
+</RCC>
