@@ -7,6 +7,7 @@ from qgis._core import QgsRasterLayer, QgsProject, QgsVectorLayer, QgsPalLayerSe
 from qgis._gui import QgsMapCanvas
 
 import utils.fileUtil as FileUtil
+from utils import set_status_crs
 
 
 def open_raster_file(main):
@@ -34,11 +35,14 @@ def open_raster_file(main):
     canvas.setLayers([layer] + canvas.layers())
     if is_first_add_layer:
         # 使用第一个图层的范围和crs，这里根据需要自定义
-        canvas.setExtent(layer.extent())    # 更新范围
-        canvas.setDestinationCrs(layer.crs())   # 更新crs
+        canvas.setExtent(layer.extent())  # 更新范围
+        canvas.setDestinationCrs(layer.crs())  # 更新crs
     canvas.freeze(False)
     canvas.setVisible(True)
     canvas.refresh()
+
+    # 重新设置坐标系统
+    set_status_crs(main.ui.label_crs, canvas)
 
 
 def open_shp_file(main):

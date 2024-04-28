@@ -4,6 +4,7 @@ from qgis._core import QgsCoordinateReferenceSystem, QgsLayerTreeModel, QgsProje
 from qgis._gui import QgsMapCanvas, QgsMapToolPan, QgsMapToolZoom, QgsLayerTreeView, QgsLayerTreeMapCanvasBridge
 
 from gui.preview.functions import open_raster_file, open_shp_file, slot_set_gis_tool, slot_refresh_canvas
+from utils import set_status_crs, set_status_xy
 from utils.help_dialog import show_help_dialog
 
 
@@ -69,6 +70,9 @@ def init_qgis_map(main):
     # 4 建立图层树与地图画布的桥接
     main.layerTreeBridge = QgsLayerTreeMapCanvasBridge(QgsProject.instance().layerTreeRoot(), main.preview_canvas, main)
 
+    # 设置状态栏
+    set_status_crs(main.ui.label_crs, main.preview_canvas)
+
 
 def bind_func(main):
     _ui = main.ui
@@ -82,6 +86,10 @@ def bind_func(main):
     _ui.button_zoom_out.clicked.connect(lambda self: slot_set_gis_tool(main.preview_canvas, main.preview_tool_zoom_out))
     _ui.button_refresh.clicked.connect(lambda self: slot_refresh_canvas(main.preview_canvas))
     _ui.button_help.clicked.connect(lambda self: show_help_dialog(main, 'preview', '数据预览'))
+
+    # qgis map 鼠标移动时坐标更改事件
+    main.preview_canvas.xyCoordinates.connect(
+        lambda point: set_status_xy(_ui.edit_coords_default_value, _ui.edit_coords_value, main.preview_canvas, point))
 
 
 def switch_theme(main, theme):

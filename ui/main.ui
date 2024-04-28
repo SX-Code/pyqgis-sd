@@ -813,7 +813,7 @@ margin-left: 5px</string>
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="label_coords_default_value">
+               <widget class="QLineEdit" name="edit_coords_default_value">
                 <property name="styleSheet">
                  <string notr="true">padding-left: 1px;
 padding-right: 1px;</string>
@@ -830,6 +830,9 @@ padding-right: 1px;</string>
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">margin-left: 4px;</string>
              </property>
              <property name="text">
               <string/>

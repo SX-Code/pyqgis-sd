@@ -1,12 +1,11 @@
 import os
 import sys
 
-from PyQt5.QtCore import QSettings, Qt
-from PyQt5.QtGui import QColor
+from PyQt5.QtCore import QSettings
 from PyQt5.QtWidgets import QMainWindow
 from qgis._core import QgsApplication
 
-from ui.mainwin import Ui_MainWindow
+from mainwin import Ui_MainWindow
 import gui as GUI
 from utils import QSSLoader
 from utils.help_dialog import refresh_help_dialog
@@ -29,7 +28,7 @@ class PyQgisSEApp(QMainWindow, Ui_MainWindow):
 
     def load_qss(self):
         # 从配置中加载主题选项
-        self.theme = self.settings.value('theme', 'dark')
+        self.theme = self.settings.value('theme', 'light')
         self.switch_theme()
 
     def slot_switch_theme(self):
