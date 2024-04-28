@@ -323,11 +323,11 @@ class Ui_MainWindow(object):
 "margin-left: 5px")
         self.label_coords_default_name.setObjectName("label_coords_default_name")
         self.horizontalLayout_8.addWidget(self.label_coords_default_name)
-        self.label_coords_default_value = QtWidgets.QLineEdit(self.frame_coords)
-        self.label_coords_default_value.setStyleSheet("padding-left: 1px;\n"
+        self.edit_coords_default_value = QtWidgets.QLineEdit(self.frame_coords)
+        self.edit_coords_default_value.setStyleSheet("padding-left: 1px;\n"
 "padding-right: 1px;")
-        self.label_coords_default_value.setObjectName("label_coords_default_value")
-        self.horizontalLayout_8.addWidget(self.label_coords_default_value)
+        self.edit_coords_default_value.setObjectName("edit_coords_default_value")
+        self.horizontalLayout_8.addWidget(self.edit_coords_default_value)
         self.horizontalLayout_7.addWidget(self.frame_coords)
         self.label_crs = QtWidgets.QLabel(self.frame_prev_bottom)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
@@ -335,6 +335,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label_crs.sizePolicy().hasHeightForWidth())
         self.label_crs.setSizePolicy(sizePolicy)
+        self.label_crs.setStyleSheet("margin-left: 4px;")
         self.label_crs.setText("")
         self.label_crs.setObjectName("label_crs")
         self.horizontalLayout_7.addWidget(self.label_crs)
